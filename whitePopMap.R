@@ -27,8 +27,7 @@ whitePopMap<-function(tsv, writedirectory, drop.rep, matinfo, PopOrder){
     x <- x[, c(1,4)]
     # Change levels of Pop to integers
     levels(x$Pop) <- PopOrder
-    # transform Pop to vectors
-    x$Pop <- as.integer(x$Pop)
+    # transform to vectors
     x$sample <- as.vector(x$sample)
     str(x)
     # Write it to a file with the name of the tvs matrix plus _PopMap_withrep (indicating reps are included)
@@ -41,8 +40,7 @@ whitePopMap<-function(tsv, writedirectory, drop.rep, matinfo, PopOrder){
     x <- x[, c(1,4)]
     # Change levels of Pop to integers
     levels(x$Pop) <- PopOrder
-    # transform Pop to vectors
-    x$Pop <- as.integer(x$Pop)
+    # transform to vectors
     x$sample <- as.vector(x$sample)
     str(x)
     # Write it to a file with the name of the tvs matrix plus _PopMap_norep (indicating reps are excluded)
