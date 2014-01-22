@@ -40,7 +40,7 @@ whitePopMap<-function(tsv, writedirectory, drop.rep, matinfo, PopOrder){
     # Keep only samples and population columns
     x <- x[, c(1,4)]
     # Change levels of Pop to integers
-    levels(x$Pop) <- c(1,2,3,4,9,5,6,7,8)
+    levels(x$Pop) <- PopOrder
     # transform Pop to vectors
     x$Pop <- as.integer(x$Pop)
     x$sample <- as.vector(x$sample)
