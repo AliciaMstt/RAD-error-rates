@@ -1,14 +1,14 @@
-whitePopMap<-function(tsv, writedirectory, drop.rep, matinfo){
+whitePopMap<-function(tsv, writedirectory, drop.rep, matinfo, PopOrder){
   # Function to create a list of the samples present in a desired matrix
   # and write a file that can be read by Stacks as a Population Map of desired samples to analyse with the populations program
   #
-  # To change the PopKey to fit the desired order for your populations change line 58 (levels(x$Pop)….)
   #
   ## Variables:
   # tsv: the path to the file of the matrix of selected RADloci from the PostCleaning script
   # writedirectory: The directory where the PopMap file should be saved, whitout starting or ending with /
   # drop.rep: if TRUE replicates (sampled ending with _r or _ir) are discarded, if FALSE they are kept
   # matinfo: a cvs file with sample names in a column "sample", and population information in a column "Pop" 
+  # PopOrder: numeric vector with desired order ti sort populations. Use to fit the PopKey desired order for your populations change line 43 (levels(x$Pop)….)
   
   # First load the matrix 
   final = read.delim(paste(tsv, sep = ""), header = T) 
@@ -26,7 +26,7 @@ whitePopMap<-function(tsv, writedirectory, drop.rep, matinfo){
     # Keep only samples and population columns
     x <- x[, c(1,4)]
     # Change levels of Pop to integers
-    levels(x$Pop) <- c(1,2,3,4,9,5,6,7,8)
+    levels(x$Pop) <- PopOrder
     # transform Pop to vectors
     x$Pop <- as.integer(x$Pop)
     x$sample <- as.vector(x$sample)
