@@ -24,7 +24,10 @@ whitePopMap<-function(tsv, writedirectory, drop.rep, matinfo, PopOrder){
     s <- match(s, x$sample) # select the rest
     x <- x[s,]
     # Keep only samples and population columns
-    x <- x[, c(1,4)]
+    sample<-as.vector(x$sample)
+    Pop<-as.vector(x$Pop)
+    x<-as.data.frame(cbind(sample, Pop))
+    
     # Change levels of Pop to integers
     levels(x$Pop) <- PopOrder
     # transform to vectors
@@ -37,7 +40,10 @@ whitePopMap<-function(tsv, writedirectory, drop.rep, matinfo, PopOrder){
   } else {
     # Don't drop replicates
     # Keep only samples and population columns
-    x <- x[, c(1,4)]
+    sample<-as.vector(x$sample)
+    Pop<-as.vector(x$Pop)
+    x<-as.data.frame(cbind(sample, Pop))
+    
     # Change levels of Pop to integers
     levels(x$Pop) <- PopOrder
     # transform to vectors
