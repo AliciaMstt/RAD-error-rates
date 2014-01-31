@@ -8,7 +8,7 @@ whitePopMap<-function(tsv, writedirectory, drop.rep, matinfo, PopOrder){
   # writedirectory: The directory where the PopMap file should be saved, whitout starting or ending with /
   # drop.rep: if TRUE replicates (sampled ending with _r or _ir) are discarded, if FALSE they are kept
   # matinfo: a cvs file with sample names in a column "sample", and population information in a column "Pop" 
-  # PopOrder: numeric vector with desired order ti sort populations. Use to fit the PopKey desired order for your populations change line 43 (levels(x$Pop)….)
+  # PopOrder: numeric vector with desired order ti sort populations. Use to fit the PopKey desired order for your populations see line 29 (levels(x$Pop)….)
   
   # First load the matrix 
   final = read.delim(paste(tsv, sep = ""), header = T) 
