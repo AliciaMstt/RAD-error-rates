@@ -2,10 +2,15 @@ SNP_error <- function(liSNPs, param){ # tsv is the SNP  matrix exported with exp
   liSNPs = liSNPs
   
   ##### Function that 
-  ## Uses a genlight object of SNPs, (i.e. a plink.raw to genlight object as used here)
+  ## Uses a genlight object of SNPs
   ## to estimate SNP error rate
   ## replicate pairs should be labeled as _r or _ir at the end of the sample name
-  ## param is a character string to identify the stacks parameters or data used  
+
+  ##### Variables:
+  # liSNPs = genlight object (package adegenet) of SNPs (generated from e.g. a plink.raw to genlight object)
+  # param = character string to label the stacks parameters or data used 
+  
+  
   require(adegenet)
 ### 1) Get recovered sample-replicate pairs
   # get samples names

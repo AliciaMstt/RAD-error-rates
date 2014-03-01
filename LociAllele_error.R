@@ -1,14 +1,27 @@
 
-LociAllele_error <- function(mat, param){ # tsv is the SNP  matrix exported with export_sql.pl from stacks
+LociAllele_error <- function(mat, param){ 
+  ##### Function to estimate loci and allele error rates between replicate pairs based on tvs matrix (SNP.SNPs)
+     ## replicate pairs should be labeled as _r or _ir at the end of the sample name
+     ## outputs a data frame with the following columns for each replicate-pair found:
+      ## "nloci" = total number of loci in the dataset 
+      ## "nMissLoc" = number of missing loci for both samples of a replicate pair 
+      ## "MissTotProp", = nMissLoc/nloci
+      ## "shareMissLoc" = number of loci that are lost in both samples of  replicate pair
+      ## "loci.mismatches" = number of loci that failed in the sample or replicate, but not in both
+      ## "unshareMissLoc" = loci.mismatches/nMissLoc
+      ## "loci.error.rate" =  loci.mismatches/nloci
+      ## "n.loci.woNA" = number of loci that were NOT missing in both samples or a replicate pair
+      ## "allele.mismatches" = number of alleles that mismatch between samples of a replicate pair 
+      ## "allele.error.rate" allele.mismatches/n.loci.woNA
+  
+  ##### Variables:
+  # mat =  dataframe containing a SNP matrix as the one exported with export_sql.pl from stacks
+  # param = character string to label the stacks parameters or data used 
+  
   final = mat
   
-  ##### Function that 
-  ## Uses a tvs matrix of alleles and loci (export_sql Stacks) to convert it to genlight object to 
-  ## estimate loci, allele, and error rates between replicate pairs based on tvs matrix (SNP.SNPs)
-  ## replicate pairs should be labeled as _r or _ir at the end of the sample name
-  ## param is a character string to identify the stacks parameters or data used   
-  
-  #### 1) converts data to a genlight object (adegenet package)
+  ###### Function
+  #### 1) convert data to a genlight object (adegenet package)
   ###  Prepare matrix to create genlight object
   ## function to transform the SNPs stored as text to an integer state
   snp2bin = function(loc){
@@ -58,6 +71,7 @@ LociAllele_error <- function(mat, param){ # tsv is the SNP  matrix exported with
   nInd(liSNPs) 
   nLoc(liSNPs)
   indNames(liSNPs)
+  
   ### Get sample-replicate pairs
   # get samples names
   samples<-indNames(liSNPs)
