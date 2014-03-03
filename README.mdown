@@ -25,7 +25,7 @@ and
 + [SNPs_error.R](./SNPs_error.R) that uses a genlight object of SNPs, (obtained by e.g. transforming a plink.raw to genlight object) to estimate SNP error rates.
 
 
-The function [PairsDiff.R](./PairsDiff.R) wraps up 'LociAllele_error.R' and 'SNPs_error.R' to estimate loci, allele and SNP error rates and visualize the Matrix of SNPs as a plot.
+The function [PairsDiff.R](./PairsDiff.R) wraps up `LociAllele_error.` and `SNPs_error.R` to estimate loci, allele and SNP error rates and visualize the Matrix of SNPs as a plot.
 
 
 #### White lists and Population Map
