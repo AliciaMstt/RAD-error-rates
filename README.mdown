@@ -9,16 +9,16 @@ The R functions to estimate the loci, allele and SNP error rates are:
 
 + [LociAllele_error.R](./LociAllele_error.R), which uses a tsv matrix of alleles and loci (formated as the output of *export_sql* from  *Stacks*) to convert it to genlight object to estimate loci and allele error rates between replicate pairs. The function produces a dataframe with the following columns for each replicate pair:
 
-   +"nloci" = total number of loci in the dataset 
-   +"nMissLoc" = number of missing loci for both samples of a replicate pair 
-   +"MissTotProp", = nMissLoc/nloci
-   +"shareMissLoc" = number of loci that are lost in both samples of  replicate pair
-   +"loci.mismatches" = number of loci that failed in the sample or replicate, but not in both
-   +"unshareMissLoc" = loci.mismatches/nMissLoc
-   +"loci.error.rate" =  loci.mismatches/nloci
-   +"n.loci.woNA" = number of loci that were NOT missing in both samples or a replicate pair
-   +"allele.mismatches" = number of alleles that mismatch between samples of a replicate pair 
-   +"allele.error.rate" allele.mismatches/n.loci.woNA
+ + "nloci" = total number of loci in the dataset 
+ + "nMissLoc" = number of missing loci for both samples of a replicate pair 
+ + "MissTotProp", = nMissLoc/nloci
+ + "shareMissLoc" = number of loci that are lost in both samples of  replicate pair
+ + "loci.mismatches" = number of loci that failed in the sample or replicate, but not in both
+ + "unshareMissLoc" = loci.mismatches/nMissLoc
+ + "loci.error.rate" =  loci.mismatches/nloci
+ + "n.loci.woNA" = number of loci that were NOT missing in both samples or a replicate pair
+ + "allele.mismatches" = number of alleles that mismatch between samples of a replicate pair 
+ + "allele.error.rate" allele.mismatches/n.loci.woNA
 
 and 
 
