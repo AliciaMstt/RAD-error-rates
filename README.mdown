@@ -1,0 +1,47 @@
+README
+===========
+
+This repo contains R functions to estimate error rates; to generate the a list of white loci and population maps to run the *populations* program of *Stacks*; to perform a PCoA and to estimate the distance between individuals of the same population. The scripts assume than several datasets will be compared (e.g. the several outputs of assembling the data with different parameters). 
+
+#### Error rates
+
+The R functions to estimate the loci, allele and SNP error rates are:
+
++ [LociAllele_error.R](./LociAllele_error.R), which uses a tsv matrix of alleles and loci (formated as the output of *export_sql* from  *Stacks*) to convert it to genlight object to estimate loci and allele error rates between replicate pairs. The function produces a dataframe with the following columns for each replicate pair:
+
+-"nloci" = total number of loci in the dataset 
+-"nMissLoc" = number of missing loci for both samples of a replicate pair 
+-"MissTotProp", = nMissLoc/nloci
+-"shareMissLoc" = number of loci that are lost in both samples of  replicate pair
+-"loci.mismatches" = number of loci that failed in the sample or replicate, but not in both
+-"unshareMissLoc" = loci.mismatches/nMissLoc
+-"loci.error.rate" =  loci.mismatches/nloci
+-"n.loci.woNA" = number of loci that were NOT missing in both samples or a replicate pair
+-"allele.mismatches" = number of alleles that mismatch between samples of a replicate pair 
+-"allele.error.rate" allele.mismatches/n.loci.woNA
+
+and 
+
++ [SNPs_error.R](./SNPs_error.R) that uses a genlight object of SNPs, (obtained by e.g. transforming a plink.raw to genlight object) to estimate SNP error rates.
+
+
+The function [PairsDiff.R](./PairsDiff.R) wraps up 'LociAllele_error.R' and 'SNPs_error.R' to estimate loci, allele and SNP error rates and visualize the Matrix of SNPs as a plot.
+
+
+#### White lists and Population Map
+
++ [whitePopMap.R](./whitePopMap.R) creates a list of the samples present in a desired df (e.g. a subsection or of the tsv output of *explort_sql*) and writes a file that can be read by *Stacks* as a Population Map of desired samples to analyse with the *populations* program
+
++ [whiteRADlist.R](./whiteRADlist.R) creates a list of the CatalogID loci present in a desired matrix and write a file that can be read by Stacks as whitelist of desired loci to perform analyses with the *populations* program.
+
+
+#### Population structure and differentiation
+
++ [dist.pop.R](.2R/PopSamples/bin/dist.pop.R) estimate distance between individuals of the same population
++ [PCoA_pop.r](.2R/PopSamples/bin/PCoA_pop.r) performs a PCoA. 
+
+
+
+
+
+ 
