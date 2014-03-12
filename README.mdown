@@ -37,8 +37,8 @@ The function [PairsDiff.R](./PairsDiff.R) wraps up `LociAllele_error.` and `SNPs
 
 #### Compare distance between populations and PCoA
 
-+ [dist.pop.R](.2R/PopSamples/bin/dist.pop.R) estimate distance between individuals of the same population
-+ [PCoA_pop.r](.2R/PopSamples/bin/PCoA_pop.r) performs a PCoA. 
++ [dist.pop.R](./dist.pop.R) estimate distance between individuals of the same population
++ [PCoA_pop.r](./PCoA_pop.r) performs a PCoA. 
 
 
 
