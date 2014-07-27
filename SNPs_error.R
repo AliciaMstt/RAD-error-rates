@@ -17,8 +17,8 @@ SNP_error <- function(liSNPs, param){ # tsv is the SNP  matrix exported with exp
   samples<-indNames(liSNPs)
   
   # get succesfull replicate-sample pairs
-  reps <- grep("_r|_ir.",samples,value=TRUE) # get the replicates (ending with _r or _ir)
-  samps <- match(sub("_r|_ir.","",reps),samples) # match against its sample (ie names w/o _r or _ir)
+  reps <- grep("_r|_ir",samples,value=TRUE) # get the replicates (ending with _r or _ir)
+  samps <- match(sub("_r|_ir","",reps),samples) # match against its sample (ie names w/o _r or _ir)
   samps<- samples[samps] # get names
   pairs<-cbind(reps,samps) # put them side by side 
   pairs<- pairs[rowSums(is.na(pairs)) < 1,] # remove rows that cointain NA to get only succesful replicate-sample pairs
