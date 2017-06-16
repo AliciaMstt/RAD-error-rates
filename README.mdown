@@ -7,7 +7,7 @@ This repo contains R functions to estimate error rates; to generate the a list o
 
 The R functions to estimate the loci, allele and SNP error rates are:
 
-+ [LociAllele_error.R](./LociAllele_error.R), which uses a tsv matrix of alleles and loci (formated as the output of *export_sql* from  *Stacks*) to convert it to genlight object to estimate loci and allele error rates between replicate pairs. The function produces a dataframe with the following columns for each replicate pair:
++ [LociAllele_error.R](./LociAllele_error.R), which uses a tsv matrix of alleles and loci (formated as the output of *export_sql* from  *Stacks* but keeping only the columns CatalogID  Consensus	SNPs Sample1 Sample1_r Sample2 ...) to convert it to genlight object to estimate loci and allele error rates between replicate pairs. The function produces a dataframe with the following columns for each replicate pair:
 
  + "nloci" = total number of loci in the dataset 
  + "nMissLoc" = number of missing loci for both samples of a replicate pair 

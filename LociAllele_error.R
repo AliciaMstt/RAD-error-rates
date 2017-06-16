@@ -15,7 +15,8 @@ LociAllele_error <- function(mat, param){
       ## "allele.error.rate" allele.mismatches/n.loci.woNA
   
   ##### Variables:
-  # mat =  dataframe containing a SNP matrix as the one exported with export_sql.pl from stacks
+  # mat =  dataframe containing a SNP matrix as the one produced by PostCleaning.r, or the ones exported with export_sql.pl from stacks,
+  # but keeping only the columns CatalogID  Consensus	SNPs Sample1 Sample1_r Sample2 ...
   # param = character string to label the stacks parameters or data used 
   
   final = mat
