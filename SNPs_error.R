@@ -1,4 +1,4 @@
-SNP_error <- function(liSNPs, param){ # tsv is the SNP  matrix exported with export_sql.pl from stacks
+SNP_error <- function(liSNPs, param){ 
   liSNPs = liSNPs
   
   ##### Function that 
